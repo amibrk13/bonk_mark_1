@@ -144,3 +144,10 @@ async def get_indicators(symbol: str):
         result[label] = indicators
 
     return result
+
+from fastapi.responses import FileResponse
+
+@app.get("/privacy", include_in_schema=False)
+def privacy_policy():
+    return FileResponse("privacy.html", media_type="text/html")
+
